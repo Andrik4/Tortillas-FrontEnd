@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Tortillería</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('../src/Tortilla.jpg'); /* Imagen local de tortillas */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Contenedor del login */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Título */
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Inputs */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #28a745;
+        }
+
+        /* Botón */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Mensaje de error */
+        .error-message {
+            color: #dc3545;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            display: none; /* Oculto por defecto */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a la Tortillería</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <div id="error-message" class="error-message">Usuario o contraseña incorrectos</div>
+    </div>
+
+    <script>
+        // Simulación de usuarios válidos
+        const usuariosValidos = {
+            "admin": "admin123",
+            "empleado": "empleado123"
+        };
+
+        // Función para validar el login
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault(); // Evitar que el formulario se envíe
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            // Validar usuario y contraseña
+            if (usuariosValidos[username] && usuariosValidos[username] === password) {
+                // Redirigir al menú
+                window.location.href = "menu.html";
+            } else {
+                // Mostrar mensaje de error
+                errorMessage.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
