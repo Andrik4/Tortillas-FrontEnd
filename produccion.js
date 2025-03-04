@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const API_URL = "http://www.tortillasaspnet.somee.com/api/produccion";
+    const API_URL = "https://cors-anywhere.herokuapp.com/http://www.tortillasaspnet.somee.com/api/produccion";
     const formAgregar = document.getElementById("form-agregar");
     const formEditar = document.getElementById("form-editar");
     const tablaProduccion = document.getElementById("tabla-produccion");
